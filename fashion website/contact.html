@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | CHEETAH</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .contact-banner {
+            background: linear-gradient(135deg, #171717, #54283f);
+            color: #f5d68b;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .contact-banner h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .contact-banner p {
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info,
+        .contact-form {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000012;
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            color: #a52d60;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 18px 0;
+            line-height: 1.7;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 14px 0 7px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d5c6cc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            margin-top: 18px;
+            padding: 12px 22px;
+            background: #171717;
+            color: #f5d68b;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #a52d60;
+            color: white;
+        }
+
+        #formMessage {
+            margin-top: 15px;
+            color: #218838;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="sarees.html">Sarees</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="offers.html">Offers</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="contact-banner">
+    <h1>Contact CHEETAH</h1>
+    <p>We would love to hear from you!</p>
+</section>
+
+<main class="contact-container">
+
+    <section class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>👗 <strong>Brand:</strong> CHEETAH Fashion Boutique</p>
+        <p>📧 <strong>Email:</strong> CHEETAH@example.com</p>
+        <p>📞 <strong>Phone:</strong> +91 98765 43210</p>
+        <p>🕒 <strong>Working Hours:</strong> Monday–Saturday, 9 AM–6 PM</p>
+        <p>Send us your questions, feedback, or fashion enquiries.</p>
+    </section>
+
+    <section class="contact-form">
+        <h2>Send a Message</h2>
+
+        <form id="contactForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name"
+                   placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject"
+                   placeholder="Enter subject" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message"
+                      placeholder="Write your message" required></textarea>
+
+            <button type="submit">Submit Message</button>
+            <p id="formMessage" role="status"></p>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p style="text-align:center; padding:20px;">
+        © 2026 CHEETAH Fashion Boutique | Style with Elegance
+    </p>
+</footer>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("formMessage").textContent =
+            "Thank you! Your message has been submitted successfully.";
+
+        this.reset();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Collection | CHEETAH</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffaf7;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 65px 15px;
+            background: linear-gradient(135deg, #171717, #493a2c);
+            color: white;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .banner span {
+            color: #e5c76b;
+        }
+
+        .banner p {
+            font-size: 17px;
+        }
+
+        .filters {
+            text-align: center;
+            padding: 25px 10px;
+        }
+
+        .filters button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .filters button:hover,
+        .filters button.active {
+            background: #c39b32;
+            color: #111;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 20px 7% 55px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px #00000012;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            margin: 8px 0;
+        }
+
+        .price {
+            color: #9c741b;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .product button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #111;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product button:hover {
+            background: #c39b32;
+            color: #111;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                gap: 15px;
+            }
+
+            .banner h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CHEETAH</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="sarees.html">Sarees</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="offers.html">Offers</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="banner">
+    <h1>Men's <span>Fashion</span></h1>
+    <p>Discover your style with our premium men's collection.</p>
+</section>
+
+<div class="filters">
+    <button class="active" onclick="filterProducts('All', this)">All</button>
+    <button onclick="filterProducts('Shirts', this)">Shirts</button>
+    <button onclick="filterProducts('T-Shirts', this)">T-Shirts</button>
+    <button onclick="filterProducts('Ethnic Wear', this)">Ethnic Wear</button>
+    <button onclick="filterProducts('Jeans', this)">Jeans</button>
+    <button onclick="filterProducts('Formal Wear', this)">Formal Wear</button>
+</div>
+
+<section class="products" id="mens-products">
+
+    <div class="product" data-category="Shirts">
+        <img src="https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=600&q=80" alt="White shirt">
+        <div class="product-info">
+            <h3>Classic White Shirt</h3>
+            <p>Elegant everyday style</p>
+            <p class="price">₹999</p>
+            <button onclick="addProduct(14)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Shirts">
+        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80" alt="Men's shirt">
+        <div class="product-info">
+            <h3>Premium Casual Shirt</h3>
+            <p>Comfortable and stylish</p>
+            <p class="price">₹1,199</p>
+            <button onclick="addProduct(8)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="T-Shirts">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Casual T-shirt">
+        <div class="product-info">
+            <h3>Casual T-Shirt</h3>
+            <p>Perfect for daily wear</p>
+            <p class="price">₹699</p>
+            <button onclick="addProduct(15)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Ethnic Wear">
+        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80" alt="Traditional outfit">
+        <div class="product-info">
+            <h3>Traditional Men's Kurta</h3>
+            <p>Festive and traditional look</p>
+            <p class="price">₹1,499</p>
+            <button onclick="addProduct(16)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Jeans">
+        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80" alt="Men's jeans">
+        <div class="product-info">
+            <h3>Slim Fit Jeans</h3>
+            <p>Modern everyday fashion</p>
+            <p class="price">₹1,299</p>
+            <button onclick="addProduct(17)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Formal Wear">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" alt="Formal blazer">
+        <div class="product-info">
+            <h3>Premium Black Blazer</h3>
+            <p>Perfect for special occasions</p>
+            <p class="price">₹2,999</p>
+            <button onclick="addProduct(12)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Ethnic Wear">
+        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80" alt="White traditional veshti outfit">
+        <div class="product-info">
+            <h3>Traditional White Veshti</h3>
+            <p>Classic South Indian style</p>
+            <p class="price">₹899</p>
+            <button onclick="addProduct(20)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Shirts">
+        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80" alt="Denim jacket">
+        <div class="product-info">
+            <h3>Casual Denim Jacket</h3>
+            <p>Smart casual fashion</p>
+            <p class="price">₹1,799</p>
+            <button onclick="addProduct(13)">Add to Bag</button>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 CHEETAH Fashion Boutique | Style for Everyone</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+    function filterProducts(category, button) {
+        document.querySelectorAll(".filters button").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        document.querySelectorAll(".product").forEach(product => {
+            product.style.display =
+                category === "All" || product.dataset.category === category
+                    ? "block"
+                    : "none";
+        });
+    }
+
+    function addProduct(id) {
+        if (typeof addToCart === "function") {
+            addToCart(id);
+        } else {
+            alert("Please check script.js.");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Collection | CHEETAH</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffaf7;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 65px 15px;
+            background: linear-gradient(135deg, #28151e, #8d5365);
+            color: white;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+        }
+
+        .banner span {
+            color: #f2d58b;
+        }
+
+        .filters {
+            text-align: center;
+            padding: 25px 10px;
+        }
+
+        .filters button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .filters button:hover,
+        .filters button.active {
+            background: #d4af37;
+            color: #111;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 20px 6% 55px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px #00000015;
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-info h3 {
+            margin: 8px 0;
+        }
+
+        .price {
+            color: #a17b24;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .product button {
+            width: 100%;
+            padding: 12px;
+            background: #111;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @media (max-width: 600px) {
+            .banner h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: inline-block;
+                padding: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CHEETAH</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="sarees.html">Sarees</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="offers.html">Offers</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="banner">
+    <h1>Women's <span>Collection</span></h1>
+    <p>Elegant styles for every occasion.</p>
+</section>
+
+<div class="filters">
+    <button class="active" onclick="filterProducts('All', this)">All</button>
+    <button onclick="filterProducts('Dresses', this)">Dresses</button>
+    <button onclick="filterProducts('Kurtis', this)">Kurtis</button>
+    <button onclick="filterProducts('Sarees', this)">Sarees</button>
+    <button onclick="filterProducts('Party Wear', this)">Party Wear</button>
+</div>
+
+<section class="products">
+
+    <div class="product" data-category="Dresses">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80" alt="Elegant party dress">
+        <div class="product-info">
+            <h3>Elegant Party Dress</h3>
+            <p>Beautiful party style</p>
+            <p class="price">₹1,899</p>
+            <button onclick="addProduct(2)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Kurtis">
+        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80" alt="Traditional ethnic wear">
+        <div class="product-info">
+            <h3>Traditional Ethnic Wear</h3>
+            <p>Classic ethnic elegance</p>
+            <p class="price">₹1,299</p>
+            <button onclick="addProduct(3)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Sarees">
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" alt="Royal silk saree">
+        <div class="product-info">
+            <h3>Royal Silk Saree</h3>
+            <p>Traditional luxury</p>
+            <p class="price">₹2,499</p>
+            <button onclick="addProduct(1)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Dresses">
+        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=600&q=80" alt="Floral dress">
+        <div class="product-info">
+            <h3>Modern Floral Dress</h3>
+            <p>Fresh everyday fashion</p>
+            <p class="price">₹1,499</p>
+            <button onclick="addProduct(6)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Sarees">
+        <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e3?auto=format&fit=crop&w=600&q=80" alt="Designer saree">
+        <div class="product-info">
+            <h3>Designer Saree</h3>
+            <p>Premium occasion wear</p>
+            <p class="price">₹2,999</p>
+            <button onclick="addProduct(5)">Add to Bag</button>
+        </div>
+    </div>
+
+    <div class="product" data-category="Party Wear">
+        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=600&q=80" alt="Women's party outfit">
+        <div class="product-info">
+            <h3>Evening Party Outfit</h3>
+            <p>Style for special moments</p>
+            <p class="price">₹1,799</p>
+            <button onclick="alert('This is a demo product. Add a product entry in script.js to enable its cart.')">
+                View Outfit
+            </button>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 CHEETAH Fashion Boutique</p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+    function filterProducts(category, button) {
+        document.querySelectorAll(".filters button").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        document.querySelectorAll(".product").forEach(product => {
+            product.style.display =
+                category === "All" ||
+                product.dataset.category === category
+                    ? "block"
+                    : "none";
+        });
+    }
+
+    function addProduct(id) {
+        if (typeof addToCart === "function") {
+            addToCart(id);
+        } else {
+            alert("Please check script.js.");
+        }
+    }
+</script>
+
+</body>
+</html>

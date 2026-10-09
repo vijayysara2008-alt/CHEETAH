@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | CHEETAH</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8fa;
+            margin: 0;
+            color: #222;
+        }
+
+        header {
+            background: #171717;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #f5d68b;
+            text-decoration: none;
+        }
+
+        .banner {
+            background: #54283f;
+            color: #f5d68b;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            border: 1px solid #e4c47b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 110px;
+            object-fit: cover;
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        .details h3 {
+            color: #a52d60;
+        }
+
+        button {
+            background: #171717;
+            color: #f5d68b;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #a52d60;
+            color: white;
+        }
+
+        .total {
+            text-align: right;
+            margin-top: 25px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px;
+        }
+
+        footer {
+            text-align: center;
+            background: #171717;
+            color: #f5d68b;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="about.html">About</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="banner">
+    <h1>My Shopping Cart</h1>
+    <p>Your favourite fashion, in one place!</p>
+</section>
+
+<main class="container">
+    <div id="cartItems"></div>
+
+    <div class="total">
+        <h2 id="totalPrice">Total: ₹0</h2>
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+    
+<section id="billSection" style="display:none; text-align:center; padding:20px;">
+    <button onclick="generateBill()">Generate Bill</button>
+    <button onclick="printBill()">Print Bill</button>
+
+    <div id="billContent"
+         style="display:none; max-width:800px; margin:25px auto;
+                padding:20px; background:white; border:1px solid #ddd;">
+    </div>
+</section>
+</main>
+
+<footer>
+    <p>© 2026 CHEETAH Fashion Boutique</p>
+</footer>
+
+
+<script>
+    let cart = JSON.parse(localStorage.getItem("CHEETAHCart")) || [];
+
+    function displayCart() {
+        const cartItems = document.getElementById("cartItems");
+        const totalPrice = document.getElementById("totalPrice");
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItems.innerHTML = `
+                <div class="empty">
+                    <h2>Your Cart is Empty 🛍️</h2>
+                    <p>Add products before generating your bill.</p>
+                    <a href="collections.html">Explore Collections</a>
+                </div>
+            `;
+            totalPrice.textContent = "Total: ₹0";
+            document.getElementById("billSection").style.display = "none";
+            return;
+        }
+
+        cartItems.innerHTML = "";
+
+        cart.forEach((item, index) => {
+            const price = Number(item.price) || 0;
+            const quantity = Number(item.quantity) || 1;
+            const subtotal = price * quantity;
+            total += subtotal;
+
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <img src="${item.image || ''}" alt="Fashion product">
+                    <div class="details">
+                        <h3>${item.name}</h3>
+                        <p>Price: ₹${price.toFixed(2)}</p>
+                        <p>Quantity: ${quantity}</p>
+                        <p>Subtotal: ₹${subtotal.toFixed(2)}</p>
+                    </div>
+                    <button onclick="removeItem(${index})">Remove</button>
+                </div>
+            `;
+        });
+
+        totalPrice.textContent = "Total: ₹" + total.toFixed(2);
+        document.getElementById("billSection").style.display = "block";
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        localStorage.setItem("CHEETAHCart", JSON.stringify(cart));
+        displayCart();
+    }
+
+    function clearCart() {
+        cart = [];
+        localStorage.setItem("CHEETAHCart", JSON.stringify(cart));
+        displayCart();
+    }
+
+    function generateBill() {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        let total = 0;
+        let rows = "";
+
+        cart.forEach(item => {
+            const price = Number(item.price) || 0;
+            const quantity = Number(item.quantity) || 1;
+            const subtotal = price * quantity;
+            total += subtotal;
+
+            rows += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>₹${price.toFixed(2)}</td>
+                    <td>${quantity}</td>
+                    <td>₹${subtotal.toFixed(2)}</td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("billContent").innerHTML = `
+            <h2>CHEETAH FASHION BOUTIQUE</h2>
+            <h3>Customer Bill</h3>
+            <p>Date: ${new Date().toLocaleDateString("en-IN")}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+            <h3>Grand Total: ₹${total.toFixed(2)}</h3>
+            <p>Thank you for shopping with CHEETAH!</p>
+        `;
+
+        document.getElementById("billContent").style.display = "block";
+    }
+
+    function printBill() {
+        const bill = document.getElementById("billContent");
+
+        if (!bill.innerHTML.trim()) {
+            alert("Please generate the bill first!");
+            return;
+        }
+
+        const printWindow = window.open("", "_blank");
+
+        if (!printWindow) {
+            alert("Please allow pop-ups to print your bill.");
+            return;
+        }
+
+        printWindow.document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>CHEETAH Bill</title>
+                <style>
+                    body { font-family: Arial; padding: 25px; }
+                    h2, h3, p { text-align: center; }
+                    table { width: 100%; border-collapse: collapse; }
+                    th, td { border: 1px solid #777; padding: 10px; text-align: left; }
+                </style>
+            </head>
+            <body>${bill.innerHTML}</body>
+            </html>
+        `);
+
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+    }
+
+    displayCart();
+</script>
+</body>
+</html>

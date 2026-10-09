@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | CHEETAH</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .collection-banner {
+            text-align: center;
+            padding: 65px 20px;
+            background: linear-gradient(120deg, #fce7ed, #fffaf0);
+        }
+
+        .collection-banner h1 {
+            font: bold 48px Georgia, serif;
+            color: #21191c;
+            margin: 12px 0;
+        }
+
+        .collection-banner h1 span {
+            color: #a83f61;
+        }
+
+        .collection-banner p {
+            color: #65575b;
+        }
+
+        .collection-list {
+            padding: 55px 8%;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .collection-card {
+            background: white;
+            box-shadow: 0 5px 20px #00000010;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .collection-info {
+            padding: 22px;
+            text-align: center;
+        }
+
+        .collection-info h2 {
+            font: bold 25px Georgia, serif;
+            margin-bottom: 8px;
+        }
+
+        .collection-info p {
+            color: #65575b;
+            margin-bottom: 18px;
+        }
+
+        .collection-info a {
+            display: inline-block;
+            background: #21191c;
+            color: white;
+            padding: 11px 22px;
+            border: 1px solid #c7a15a;
+        }
+
+        .collection-info a:hover {
+            background: #a83f61;
+        }
+
+        @media (max-width: 800px) {
+            .collection-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding: 35px 5%;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .collection-list {
+                grid-template-columns: 1fr;
+            }
+
+            .collection-banner h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement">
+        ✨ WELCOME TO CHEETAH — STYLE THAT DEFINES YOU! ✨
+    </div>
+
+    <header>
+        <div class="logo">Glam<span>ora.</span></div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="index.html#products">Shop</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="nav-icons">
+            <a href="index.html#products">🔍</a>
+            <a href="index.html#products">🛍️ Shop</a>
+        </div>
+    </header>
+
+    <section class="collection-banner">
+        <p class="subtitle">DISCOVER YOUR STYLE</p>
+        <h1>Our <span>Collections</span></h1>
+        <p>Traditional elegance meets modern fashion.</p>
+    </section>
+
+    <main class="collection-list">
+
+        <article class="collection-card">
+            <img
+                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"
+                alt="Traditional saree collection">
+
+            <div class="collection-info">
+                <h2>Saree Collection</h2>
+                <p>Silk, cotton and designer sarees for every occasion.</p>
+                <a href="index.html#products">Explore Sarees ↗</a>
+            </div>
+        </article>
+
+        <article class="collection-card">
+            <img
+                src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=80"
+                alt="Women's dresses">
+
+            <div class="collection-info">
+                <h2>Women's Dresses</h2>
+                <p>Beautiful styles for parties and everyday wear.</p>
+                <a href="index.html#products">Explore Dresses ↗</a>
+            </div>
+        </article>
+
+        <article class="collection-card">
+            <img
+                src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=80"
+                alt="Traditional ethnic wear">
+
+            <div class="collection-info">
+                <h2>Ethnic Wear</h2>
+                <p>Elegant kurtis and traditional outfits.</p>
+                <a href="index.html#products">Explore Ethnic Wear ↗</a>
+            </div>
+        </article>
+
+        <article class="collection-card">
+            <img
+                src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=700&q=80"
+                alt="Men's fashion">
+
+            <div class="collection-info">
+                <h2>Men's Fashion</h2>
+                <p>Classic and contemporary looks for men.</p>
+                <a href="index.html#products">Explore Menswear ↗</a>
+            </div>
+        </article>
+
+        <article class="collection-card">
+            <img
+                src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=700&q=80"
+                alt="New fashion arrivals">
+
+            <div class="collection-info">
+                <h2>New Arrivals</h2>
+                <p>Explore fresh styles and the latest trends.</p>
+                <a href="index.html#products">Explore New Styles ↗</a>
+            </div>
+        </article>
+
+        <article class="collection-card">
+            <img
+                src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=80"
+                alt="Fashion essentials">
+
+            <div class="collection-info">
+                <h2>Everyday Essentials</h2>
+                <p>Comfortable styles for your daily wardrobe.</p>
+                <a href="index.html#products">Explore Styles ↗</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="copyright">
+            <p>© 2026 CHEETAH Fashion Boutique | Designed with ♡</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saree Collection | CHEETAH</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .saree-banner {
+            text-align: center;
+            padding: 65px 20px;
+            background: linear-gradient(120deg, #fce7ed, #fffaf0);
+        }
+
+        .saree-banner h1 {
+            font: bold 48px Georgia, serif;
+            margin: 12px 0;
+        }
+
+        .saree-banner h1 span {
+            color: #a83f61;
+        }
+
+        .saree-banner p {
+            color: #65575b;
+        }
+
+        .saree-section {
+            padding: 55px 8%;
+            background: #fffaf7;
+        }
+
+        .saree-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .saree-filters button {
+            padding: 10px 20px;
+            border: 1px solid #c7a15a;
+            background: white;
+            color: #21191c;
+            cursor: pointer;
+        }
+
+        .saree-filters button.active,
+        .saree-filters button:hover {
+            background: #a83f61;
+            color: white;
+        }
+
+        .saree-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .saree-card {
+            background: white;
+            border: 1px solid #f1e8e8;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .saree-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px #00000010;
+        }
+
+        .saree-card[hidden] {
+            display: none;
+        }
+
+        .saree-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .saree-info {
+            padding: 15px;
+        }
+
+        .saree-info .tag {
+            color: #a83f61;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .saree-info h3 {
+            font: bold 19px Georgia, serif;
+            margin: 6px 0;
+        }
+
+        .saree-price {
+            color: #a83f61;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .saree-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .saree-actions button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-btn {
+            flex: 1;
+            background: #21191c;
+            color: white;
+        }
+
+        .add-btn:hover {
+            background: #a83f61;
+        }
+
+        .heart-btn {
+            width: 42px;
+            background: #fce7ed;
+            color: #a83f61;
+            font-size: 19px;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 25px;
+            color: #65575b;
+        }
+
+        @media (max-width: 900px) {
+            .saree-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 500px) {
+            .saree-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .saree-banner h1 {
+                font-size: 35px;
+            }
+
+            .saree-section {
+                padding: 35px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="announcement">
+        ✨ CHEETAH — ELEGANCE IN EVERY THREAD ✨
+    </div>
+
+    <header>
+        <div class="logo">Glam<span>ora.</span></div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="sarees.html">Sarees</a>
+            <a href="index.html#products">Shop</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="nav-icons">
+            <button onclick="location.href='index.html#products'"
+                    aria-label="Search products">🔍</button>
+
+            <button onclick="showWishlist()"
+                    aria-label="Open wishlist">♡</button>
+
+            <button onclick="showCart()"
+                    aria-label="Open shopping cart">
+                🛍️ <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="saree-banner">
+        <p class="subtitle">TIMELESS INDIAN ELEGANCE</p>
+        <h1>Beautiful <span>Sarees</span></h1>
+        <p>Discover traditional beauty with a touch of luxury.</p>
+    </section>
+
+    <main class="saree-section">
+
+        <div class="section-heading">
+            <p class="subtitle">OUR SPECIAL COLLECTION</p>
+            <h2>Find Your <span>Perfect Saree</span></h2>
+            <p>From everyday cotton to elegant silk styles.</p>
+        </div>
+
+        <div class="saree-filters">
+            <button class="active" data-filter="All">All Sarees</button>
+            <button data-filter="Silk">Silk Sarees</button>
+            <button data-filter="Cotton">Cotton Sarees</button>
+            <button data-filter="Designer">Designer Sarees</button>
+        </div>
+
+        <div class="saree-grid" id="saree-grid">
+
+            <article class="saree-card" data-category="Silk">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80"
+                     alt="Royal silk saree" loading="lazy">
+
+                <div class="saree-info">
+                    <p class="tag">Silk Collection</p>
+                    <h3>Royal Silk Saree</h3>
+                    <p class="saree-price">₹2,499</p>
+                    <div class="saree-actions">
+                        <button class="add-btn" data-add="1">Add to Bag +</button>
+                        <button class="heart-btn" data-wish="1"
+                                aria-label="Add Royal Silk Saree to wishlist">♡</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="saree-card" data-category="Cotton">
+                <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e3?auto=format&fit=crop&w=600&q=80"
+                     alt="Traditional cotton saree" loading="lazy">
+
+                <div class="saree-info">
+                    <p class="tag">Cotton Collection</p>
+                    <h3>Classic Cotton Saree</h3>
+                    <p class="saree-price">₹999</p>
+                    <div class="saree-actions">
+                        <button class="add-btn" data-add="9">Add to Bag +</button>
+                        <button class="heart-btn" data-wish="9"
+                                aria-label="Add Classic Cotton Saree to wishlist">♡</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="saree-card" data-category="Designer">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80"
+                     alt="Designer saree" loading="lazy">
+
+                <div class="saree-info">
+                    <p class="tag">Designer Collection</p>
+                    <h3>Designer Party Saree</h3>
+                    <p class="saree-price">₹1,899</p>
+                    <div class="saree-actions">
+                        <button class="add-btn" data-add="10">Add to Bag +</button>
+                        <button class="heart-btn" data-wish="10"
+                                aria-label="Add Designer Party Saree to wishlist">♡</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="saree-card" data-category="Silk">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80"
+                     alt="Festive silk saree" loading="lazy">
+
+                <div class="saree-info">
+                    <p class="tag">Festive Collection</p>
+                    <h3>Festive Silk Saree</h3>
+                    <p class="saree-price">₹3,499</p>
+                    <div class="saree-actions">
+                        <button class="add-btn" data-add="11">Add to Bag +</button>
+                        <button class="heart-btn" data-wish="11"
+                                aria-label="Add Festive Silk Saree to wishlist">♡</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="empty-message" id="empty-message" hidden>
+            No sarees in this category.
+        </p>
+
+    </main>
+
+    <footer>
+        <div class="copyright">
+            <p>© 2026 CHEETAH Fashion Boutique | Designed with ♡</p>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal" hidden>
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()"
+                    aria-label="Close">&times;</button>
+            <h2 id="modal-title">Shopping Bag</h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Saree category filters
+        const filterButtons = document.querySelectorAll("[data-filter]");
+        const sareeCards = document.querySelectorAll(".saree-card");
+        const emptyMessage = document.getElementById("empty-message");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                filterButtons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+
+                const selected = button.dataset.filter;
+                let visibleCount = 0;
+
+                sareeCards.forEach(card => {
+                    const show = selected === "All" ||
+                                 card.dataset.category === selected;
+
+                    card.hidden = !show;
+
+                    if (show) visibleCount++;
+                });
+
+                emptyMessage.hidden = visibleCount !== 0;
+            });
+        });
+
+        // Use the existing homepage product data and cart functions
+        // for matching products; add new saree products if needed.
+        document.getElementById("saree-grid").addEventListener("click", event => {
+            const addButton = event.target.closest("[data-add]");
+            const wishButton = event.target.closest("[data-wish]");
+
+            if (addButton) {
+                const id = Number(addButton.dataset.add);
+                const product = products.find(item => item.id === id);
+
+                if (product) {
+                    addToCart(id);
+                } else {
+                    alert("Please add this saree to the product list in script.js first.");
+                }
+            }
+
+            if (wishButton) {
+                const id = Number(wishButton.dataset.wish);
+                const product = products.find(item => item.id === id);
+
+                if (product) {
+                    toggleWishlist(id);
+                } else {
+                    alert("Please add this saree to the product list in script.js first.");
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

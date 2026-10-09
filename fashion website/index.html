@@ -1,0 +1,320 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CHEETAH | Fashion Boutique</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        ✨ Welcome to CHEETAH — Style That Defines You! ✨
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">CHEE<span>TAH.</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#collections">Collections</a>
+            <a href="#products">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-icons">
+            <button onclick="focusSearch()" aria-label="Search">🔍</button>
+            <button onclick="showWishlist()" aria-label="Wishlist">♡</button>
+            <button onclick="showCart()" aria-label="Shopping cart">
+                🛍️ <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <p class="subtitle">THE NEW SEASON COLLECTION</p>
+
+            <h1>
+                Elegance in Every
+                <span>Thread.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover timeless sarees, stunning dresses,
+                elegant ethnic wear and modern fashion.
+                Your style journey begins here.
+            </p>
+
+            <a href="#products" class="btn">SHOP COLLECTION ↗</a>
+
+            <div class="hero-details">
+                <div>
+                    <h3>500+</h3>
+                    <p>Fashion Styles</p>
+                </div>
+
+                <div>
+                    <h3>100%</h3>
+                    <p>Style & Elegance</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=85"
+                alt="Elegant traditional Indian fashion"
+            >
+
+            <div class="image-label">
+                <span>✦</span>
+                <div>
+                    <strong>Tradition Meets Trend</strong>
+                    <p>Discover your signature style</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Categories -->
+    <section class="categories section" id="collections">
+
+        <div class="section-heading">
+            <p class="subtitle">EXPLORE OUR WORLD</p>
+            <h2>Shop By <span>Category</span></h2>
+            <p>Find your perfect look for every occasion.</p>
+        </div>
+
+        <div class="category-grid">
+
+            <a href="#products" class="category-card" data-category="Sarees">
+                <img
+                    src="https://images.unsplash.com/photo-1583391733956-6c78276477e3?auto=format&fit=crop&w=600&q=80"
+                    alt="Traditional clothing"
+                >
+                <div class="category-info">
+                    <h3>Sarees</h3>
+                    <span>Explore Collection ↗</span>
+                </div>
+            </a>
+
+            <a href="#products" class="category-card" data-category="Dresses">
+                <img
+                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80"
+                    alt="Women's fashion dresses"
+                >
+                <div class="category-info">
+                    <h3>Dresses</h3>
+                    <span>Explore Collection ↗</span>
+                </div>
+            </a>
+
+            <a href="#products" class="category-card" data-category="Kurtis">
+                <img
+                    src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80"
+                    alt="Ethnic fashion"
+                >
+                <div class="category-info">
+                    <h3>Ethnic Wear</h3>
+                    <span>Explore Collection ↗</span>
+                </div>
+            </a>
+
+            <a href="#products" class="category-card" data-category="Menswear">
+                <img
+                    src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80"
+                    alt="Men's fashion"
+                >
+                <div class="category-info">
+                    <h3>Menswear</h3>
+                    <span>Explore Collection ↗</span>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Products -->
+    <section class="products section" id="products">
+
+        <div class="section-heading">
+            <p class="subtitle">HANDPICKED FOR YOU</p>
+            <h2>Our <span>Best Sellers</span></h2>
+            <p>Fashion favourites you'll fall in love with.</p>
+        </div>
+
+        <!-- Search -->
+        <div class="shop-controls">
+            <input
+                type="search"
+                id="search-input"
+                placeholder="Search sarees, dresses, kurtis..."
+                aria-label="Search products"
+            >
+
+            <select id="category-filter" aria-label="Filter products">
+                <option value="All">All Categories</option>
+                <option value="Sarees">Sarees</option>
+                <option value="Dresses">Dresses</option>
+                <option value="Kurtis">Kurtis</option>
+                <option value="Menswear">Menswear</option>
+            </select>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+
+            <!-- Products are added using JavaScript -->
+
+        </div>
+
+        <p class="no-products" id="no-products" hidden>
+            No products found. Try another search!
+        </p>
+
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promo">
+
+        <div>
+            <p class="subtitle">A LITTLE EXTRA LOVE</p>
+            <h2>Your Style, Your Story.</h2>
+            <p>
+                Discover beautiful fashion for your everyday
+                moments and special occasions.
+            </p>
+
+            <a href="#products" class="btn light-btn">
+                EXPLORE NOW ↗
+            </a>
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=85"
+                alt="CHEETAH traditional fashion collection"
+            >
+        </div>
+
+        <div class="about-content">
+            <p class="subtitle">OUR STORY</p>
+
+            <h2>Fashion With A Touch Of <span>Tradition.</span></h2>
+
+            <p>
+                At CHEETAH, we bring together traditional Indian
+                textiles and modern fashion. From graceful sarees
+                to contemporary outfits, our collection celebrates
+                beauty, confidence and individuality.
+            </p>
+
+            <a href="#collections" class="btn">DISCOVER MORE ↗</a>
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <h2>Join The CHEETAH Club ♡</h2>
+
+        <p>
+            Subscribe for fashion updates, new arrivals and special offers.
+        </p>
+
+        <form id="newsletter-form">
+            <input
+                type="email"
+                id="newsletter-email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">SUBSCRIBE</button>
+        </form>
+
+        <p id="newsletter-message" role="status"></p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+
+        <div class="footer-grid">
+
+            <div>
+                <div class="logo footer-logo">Glam<span>ora.</span></div>
+
+                <p>
+                    Where timeless tradition meets modern fashion.
+                    Dress beautifully. Feel confident.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="#products">Shop Now</a>
+                <a href="#about">About Us</a>
+            </div>
+
+            <div>
+                <h3>Collections</h3>
+                <a href="#products">Sarees</a>
+                <a href="#products">Dresses</a>
+                <a href="#products">Kurtis</a>
+                <a href="#products">Menswear</a>
+            </div>
+
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: hello@CHEETAH.example</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>India</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 CHEETAH Fashion Boutique | Designed with ♡</p>
+        </div>
+
+    </footer>
+
+    <!-- Cart / Wishlist Popup -->
+    <div id="modal" class="modal" hidden>
+        <div class="modal-content">
+
+            <button class="close-modal" onclick="closeModal()"
+                    aria-label="Close">&times;</button>
+
+            <h2 id="modal-title">Your Shopping Bag</h2>
+
+            <div id="modal-body"></div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```

@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers | CHEETAH</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .offers-banner {
+            background: linear-gradient(135deg, #171717, #4b263b);
+            color: #f5d68b;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .offers-banner h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .offers-banner p {
+            color: #fff;
+            font-size: 17px;
+        }
+
+        .offers-container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .offer-card {
+            background: #fff;
+            border: 1px solid #e4c47b;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 22px;
+            box-shadow: 0 4px 12px #00000012;
+        }
+
+        .offer-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .offer-card h3 {
+            margin: 15px 8px 8px;
+            color: #292020;
+        }
+
+        .offer-card p {
+            color: #6a5b60;
+            margin: 8px;
+        }
+
+        .offer-label {
+            display: inline-block;
+            background: #f8e5ed;
+            color: #9b2458;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .offer-card button {
+            background: #171717;
+            color: #f5d68b;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .offer-card button:hover {
+            background: #a52d60;
+            color: white;
+        }
+
+        .offer-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="collections.html">Collections</a>
+        <a href="sarees.html">Sarees</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="offers.html">Offers</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="offers-banner">
+    <h1>Exclusive Offers</h1>
+    <p>Discover your favourite styles at CHEETAH Fashion Boutique.</p>
+</section>
+
+<main class="offers-container">
+    <div class="offers-grid">
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80"
+                 alt="Traditional saree">
+            <span class="offer-label">Festive Favourite</span>
+            <h3>Royal Silk Saree</h3>
+            <p>Elegant style for special occasions.</p>
+            <button onclick="addProduct(1)">Add to Bag</button>
+        </div>
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
+                 alt="Women's party dress">
+            <span class="offer-label">Party Favourite</span>
+            <h3>Elegant Party Dress</h3>
+            <p>A stylish look for every celebration.</p>
+            <button onclick="addProduct(2)">Add to Bag</button>
+        </div>
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e8?auto=format&fit=crop&w=600&q=80"
+                 alt="Traditional ethnic outfit">
+            <span class="offer-label">Ethnic Collection</span>
+            <h3>Traditional Wear</h3>
+            <p>Classic designs with a modern touch.</p>
+            <button onclick="addProduct(3)">Add to Bag</button>
+        </div>
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80"
+                 alt="Fashion clothing collection">
+            <span class="offer-label">Everyday Style</span>
+            <h3>Modern Floral Dress</h3>
+            <p>Fresh and beautiful everyday fashion.</p>
+            <button onclick="addProduct(6)">Add to Bag</button>
+        </div>
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80"
+                 alt="Designer saree">
+            <span class="offer-label">Elegant Pick</span>
+            <h3>Designer Saree</h3>
+            <p>Make every occasion memorable.</p>
+            <button onclick="addProduct(5)">Add to Bag</button>
+        </div>
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80"
+                 alt="Men's formal fashion">
+            <span class="offer-label">Men's Style</span>
+            <h3>Modern Menswear</h3>
+            <p>Smart outfits for your wardrobe.</p>
+            <button onclick="addProduct(8)">Add to Bag</button>
+        </div>
+
+    </div>
+
+    <p class="offer-note">
+        Offer labels are for demonstration. Product prices come from your script.js.
+    </p>
+</main>
+
+<footer>
+    <p style="text-align:center; padding:20px;">
+        © 2026 CHEETAH Fashion Boutique | Style with Elegance
+    </p>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+    function addProduct(id) {
+        if (typeof addToCart === "function") {
+            addToCart(id);
+        } else {
+            alert("Please check your script.js file.");
+        }
+    }
+</script>
+
+</body>
+</html>
